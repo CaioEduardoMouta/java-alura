@@ -1,11 +1,11 @@
-package Poo.bank;
+package Poo.bankcomposto;
 
 
 public class Conta {
-    int agencia = 42;
+    private double saldo;
+    int agencia;
     int numero;
-    double saldo;
-    String titular;
+    Cliente titular;
 
     public void deposita(double valor){
         this.saldo = this.saldo + valor;
@@ -20,12 +20,16 @@ public class Conta {
         }
     }
 
-    public boolean transfere(double valor, Conta destino){
+    public boolean transfere(double valor, Poo.bank.Conta destino){
         if(this.saldo >= valor) {
             this.saldo -= valor;
             destino.deposita(valor);
             return true;
         }else
             return false;
+    }
+
+    public double getSaldo() {
+        return saldo;
     }
 }
