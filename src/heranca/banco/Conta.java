@@ -9,11 +9,11 @@ public abstract class Conta {
     private static int total;
 
     public Conta(int agencia, int numero){
-        Conta.total++;
+        heranca.banco.Conta.total++;
         //System.out.println("O total de contas é" + Conta.total);
         this.agencia = agencia;
         this.numero = numero;
-        //System.out.println("estou criando uma conta" + this.numero);
+        //System.out.println("estou criando uma Conta" + this.numero);
     }
 
     public abstract void deposita(double valor);
