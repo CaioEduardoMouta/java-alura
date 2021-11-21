@@ -14,4 +14,12 @@ public class GuardadorDeContas {
         this.referencias[this.posicaolivre] = ref;
         this.posicaolivre++;
     }
+
+    public int getQuantidadeDeElementos() {
+        return this.posicaolivre;
+    }
+
+    public Conta getReferencia(int pos) {
+        return this.referencias[pos];
+    }
 }
