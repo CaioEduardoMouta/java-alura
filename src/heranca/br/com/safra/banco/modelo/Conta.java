@@ -1,5 +1,6 @@
 package heranca.br.com.safra.banco.modelo;
 
+
 /**
  * Classe representa a moldura de uma conta
  *
@@ -7,7 +8,7 @@ package heranca.br.com.safra.banco.modelo;
  *
  */
 
-public abstract class Conta {
+public abstract class Conta implements Comparable<Conta> {
 
     protected double saldo;
     private int agencia;
@@ -105,10 +106,15 @@ public abstract class Conta {
     }
 
     @Override
+    public int compareTo(Conta outra) {
+        return Double.compare(this.saldo, outra.saldo);
+    }
+
+    @Override
     public String toString() {
         return "Conta " +
-                "Numero=" + this.numero +
-                ", Agencia=" + this.agencia +
-                '}';
+                "Numero: " + this.numero +
+                ", Agencia: " + this.agencia +
+                ", Saldo: " + this.saldo;
     }
 }

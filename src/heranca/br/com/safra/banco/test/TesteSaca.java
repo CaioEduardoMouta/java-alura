@@ -1,7 +1,7 @@
 package heranca.br.com.safra.banco.test;
 
-import heranca.br.com.safra.banco.modelo.Conta;
-import heranca.br.com.safra.banco.modelo.ContaCorrente;
+import heranca.br.com.safra.banco.modelo.*;
+
 import heranca.br.com.safra.banco.modelo.SaldoInsuficienteException;
 
 public class TesteSaca {

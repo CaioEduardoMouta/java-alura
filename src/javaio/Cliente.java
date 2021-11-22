@@ -1,4 +1,4 @@
-package heranca.br.com.safra.banco.modelo;
+package javaio;
 
 public class Cliente {
 
