@@ -1,19 +1,20 @@
 package javaio;
 
-public class Cliente {
+import java.io.Serializable;
+
+
+public class Cliente implements Serializable {
+
+    private static final long serialVersionUID = 9028550378181866390L;
 
     private String nome;
     private String cpf;
     private String profissao;
-    private String titular;
 
-    public String getTitular() {
-        return titular;
+    public String getNomeCpf() {
+        return nome + " , " + cpf + " , "+ profissao;
     }
 
-    public void setTitular(String titular) {
-        this.titular = titular;
-    }
 
     public String getNome() {
         return nome;
