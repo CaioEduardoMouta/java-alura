@@ -1,5 +1,7 @@
 package heranca.br.com.safra.banco.modelo;
 
+import java.io.Serializable;
+
 public class Cliente {
 
     private String nome;
