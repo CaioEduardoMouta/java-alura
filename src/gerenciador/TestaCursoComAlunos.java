@@ -1,6 +1,8 @@
 package gerenciador;
 
+import java.util.Iterator;
 import java.util.Set;
+import java.util.Vector;
 
 public class TestaCursoComAlunos {
 
@@ -20,12 +22,26 @@ public class TestaCursoComAlunos {
         javaColecoes.matricula(a2);
         javaColecoes.matricula(a3);
         javaColecoes.matricula(a4);
-        
+
 
         System.out.println("Todos os alunos matriculados ");
-        javaColecoes.getAlunos().forEach(a -> {
-            System.out.println(a);
-        });
+
+        Set<Aluno> alunos = javaColecoes.getAlunos();
+        Iterator<Aluno> iterator = alunos.iterator();
+        while(iterator.hasNext()) {
+            Aluno proximo = iterator.next();
+            System.out.println(proximo);
+        }
+
+        Vector<Aluno> vetor = new Vector<>();
+
+//        for (Aluno a: javaColecoes.getAlunos()) {
+//            System.out.println(a);
+//        }
+
+//        javaColecoes.getAlunos().forEach(a -> {
+//            System.out.println(a);
+//        });
 
         System.out.println("O aluno "+ a1 + " está matriculado?");
         System.out.println(javaColecoes.estaMatriculado(a1));
