@@ -2,8 +2,16 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <option name="USE_RELEASE_OPTION" value="false" />
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="java-alura" />
+      </profile>
+    </annotationProcessing>
     <bytecodeTargetLevel target="16">
-      <module name="java-alura" target="" />
+      <module name="java-alura" target="16" />
     </bytecodeTargetLevel>
   </component>
 </project>
