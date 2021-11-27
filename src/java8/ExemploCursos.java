@@ -1,8 +1,8 @@
 package java8;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
+
 
 class Curso {
     private String nome;
@@ -21,6 +21,7 @@ class Curso {
         return alunos;
     }
   }
+
     public class ExemploCursos {
         public static void main(String[] args) {
             List<Curso> cursos = new ArrayList<Curso>();
@@ -31,11 +32,23 @@ class Curso {
 
             cursos.sort(Comparator.comparing(Curso::getAlunos));
 
-            int sum = cursos.stream()
+            OptionalDouble media = cursos.stream()
                     .filter(c -> c.getAlunos() >= 100)
                     .mapToInt(Curso::getAlunos)
-                    .sum();
+                    .average();
 
-            System.out.println(sum);
+            //System.out.println(media);
+
+//             cursos.stream()
+//                    .filter(c -> c.getAlunos() >= 100)
+//                    .findAny()
+//                     .ifPresent(c-> System.out.println(c.getNome()));
+
+            cursos.parallelStream()
+                    .filter(c -> c.getAlunos() >= 100)
+                    .collect(Collectors.toMap(
+                            c-> c.getNome(),
+                            c -> c.getAlunos()))
+                    .forEach((nome, alunos) -> System.out.println(nome + "tem "+ alunos + "alunos"));
         }
 }
