@@ -1,5 +1,7 @@
 package javapoo.heranca;
 
+import javapoo.heranca.Funcionario*:
+
 public class TesteGerente {
 
     public static void main(String[] args) {

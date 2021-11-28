@@ -28,4 +28,5 @@ public class Gerente extends Funcionario implements Autenticavel{
         return this.autenticador.autentica(senha);
 
     }
+
 }
