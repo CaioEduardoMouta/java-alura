@@ -3,6 +3,7 @@ package arquitetura.solid.service.promocao;
 import arquitetura.solid.ValidacaoException;
 import arquitetura.solid.model.Cargo;
 import arquitetura.solid.model.Funcionario;
+import arquitetura.solid.model.DadosPessoais;
 
 public class PromocaoService {
 

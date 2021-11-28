@@ -1,13 +1,12 @@
 package javapoo.heranca;
 
-import javapoo.heranca.Funcionario*:
 
-public class TesteGerente {
+
+public class TesteGerente implements Autenticavel {
 
     public static void main(String[] args) {
 
-        Autenticavel gerente = new Gerente();
-        Autenticavel adm = new Administrador();
+
 
 
         Gerente g1 = new Gerente();
@@ -25,5 +24,16 @@ public class TesteGerente {
         System.out.println(autenticou);
 
         System.out.println(g1.getBonificacao());
+    }
+
+
+    @Override
+    public void setSenha(int senha) {
+
+    }
+
+    @Override
+    public boolean autentica(int senha) {
+        return false;
     }
 }

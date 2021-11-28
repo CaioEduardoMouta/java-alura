@@ -1,58 +1,27 @@
 package arquitetura.solid.model;
 
-import arquitetura.solid.ValidacaoException;
-
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.time.LocalDate;
 
-public class Funcionario {
+public  class Funcionario extends DadosPessoais{
+
 
     private DadosPessoais dadosPessoais;
     private LocalDate dataUltimoReajuste;
+    private Cargo cargo;
 
-    public Funcionario(String nome, String cpf, Cargo cargo, BigDecimal salario) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.cargo = cargo;
-        this.salary = salario;
+    public Funcionario(String nome, String cpf, Cargo cargo, BigDecimal salary, DadosPessoais dadosPessoais, LocalDate dataUltimoReajuste) {
+        super(nome, cpf, cargo, salary);
+        this.dadosPessoais = dadosPessoais;
+        this.dataUltimoReajuste = dataUltimoReajuste;
     }
 
-    public void atualizarSalario(BigDecimal novoSalario) {
-        this.salary = novoSalario;
-        this.dataUltimoReajuste = LocalDate.now();
+    public DadosPessoais getDadosPessoais() {
+        return dadosPessoais;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public Cargo getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(Cargo cargo) {
-        this.cargo = cargo;
-    }
-
-    public BigDecimal getSalary() {
-        return salary;
-    }
-
-    public void setSalary(BigDecimal salary) {
-        this.salary = salary;
+    public void setDadosPessoais(DadosPessoais dadosPessoais) {
+        this.dadosPessoais = dadosPessoais;
     }
 
     public LocalDate getDataUltimoReajuste() {

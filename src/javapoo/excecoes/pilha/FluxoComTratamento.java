@@ -13,8 +13,6 @@ public class FluxoComTratamento {
             ex.printStackTrace();
         }
 
-
-
         System.out.println("Fim do main");
     }
 

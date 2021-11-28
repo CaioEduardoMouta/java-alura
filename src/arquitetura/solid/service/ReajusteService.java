@@ -1,12 +1,8 @@
 package arquitetura.solid.service;
 
-import arquitetura.solid.ValidacaoException;
 import arquitetura.solid.model.Funcionario;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 public class ReajusteService {
@@ -18,10 +14,17 @@ public class ReajusteService {
     }
 
     public void reajustarSalarioDoFuncionario(Funcionario funcionario, BigDecimal aumento) {
-        this.validacoes.forEach(v -> v.validar(funcionario, aumento));
+       this.validacoes.forEach(v -> v.validar(funcionario, aumento));
 
+//        ValidacaoPercentualReajuste validacaoPercentualReajuste = new ValidacaoPercentualReajuste();
+//        ValidacaoPeriodicidadaeEntreReajuste validacaoPeriocidadaeEntreReajuste = new ValidacaoPeriodicidadaeEntreReajuste();
+//
+//        validacaoPercentualReajuste.validar(funcionario, aumento);
+//        validacaoPeriocidadaeEntreReajuste(funcionario, aumento);
 
         BigDecimal salarioReajustado = funcionario.getSalary().add(aumento);
         funcionario.atualizarSalario(salarioReajustado);
     }
+
+
 }
