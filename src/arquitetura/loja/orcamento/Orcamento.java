@@ -5,11 +5,12 @@ import java.math.BigDecimal;
 import arquitetura.loja.orcamento.situacao.EmAnalise;
 import arquitetura.loja.orcamento.situacao.SituacaoOrcamento;
 
+
 public class Orcamento {
 
     private BigDecimal valor;
     private int quantidadeItens;
-    private EmAnalise situacao;
+    private SituacaoOrcamento situacao;
 
     public Orcamento(BigDecimal valor, int quantidadeItens) {
         this.valor = valor;
@@ -19,7 +20,7 @@ public class Orcamento {
     
     public void aplicarDescontoExtra() {
     	BigDecimal valorDoDescontoExtra = this.situacao.calcularValorDescontoExtra(this);
-	this.valor = this.valor.subtract(valorDoDescontoExtra);
+    	this.valor = this.valor.subtract(valorDoDescontoExtra);
     }
     
     public void aprovar() {
@@ -48,13 +49,15 @@ public class Orcamento {
 		return quantidadeItens;
 	}
 	
-	public EmAnalise getSituacao() {
+	public SituacaoOrcamento getSituacao() {
 		return situacao;
 	}
 	
-	public void setSituacao(EmAnalise situacao) {
+	public void setSituacao(SituacaoOrcamento situacao) {
 		this.situacao = situacao;
 	}
+	
+
 	
 
 	

@@ -10,10 +10,13 @@ public class Aprovado extends SituacaoOrcamento{
 		return orcamento.getValor().multiply(new BigDecimal("0.02"));
 	}
 	
+	
 	@Override
 	public void finalizar(Orcamento orcamento) {
 		// TODO Auto-generated method stub
 		orcamento.setSituacao(new Finalizado());
 	}
+
+
 
 }

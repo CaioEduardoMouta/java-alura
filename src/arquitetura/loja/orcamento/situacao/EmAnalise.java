@@ -1,10 +1,12 @@
 package arquitetura.loja.orcamento.situacao;
 
+
+
 import java.math.BigDecimal;
 
 import arquitetura.loja.orcamento.Orcamento;
 
-public class EmAnalise {
+public class EmAnalise extends SituacaoOrcamento{
 	
 	public BigDecimal calcularValorDescontoExtra(Orcamento orcamento) {
 		return orcamento.getValor().multiply(new BigDecimal("0.05"));
@@ -18,4 +20,5 @@ public class EmAnalise {
 		orcamento.setSituacao(new Reprovado());
 	}
 
+	
 }
