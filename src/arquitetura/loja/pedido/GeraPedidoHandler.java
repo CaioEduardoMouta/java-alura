@@ -14,7 +14,6 @@ public class GeraPedidoHandler {
 	
 	
 	public GeraPedidoHandler(List<AcaoAposGerarPedido> acoes) {
-		super();
 		this.acoes = acoes;
 	}
 
