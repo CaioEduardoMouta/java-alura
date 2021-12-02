@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 
 import arquitetura.loja.pedido.acao.EnviarEmail;
+import arquitetura.loja.pedido.acao.LogDePedido;
 import arquitetura.loja.pedido.acao.SalvarPedidonoNoBancoDeDados;
 
 public class TestesPedidos {
@@ -17,7 +18,9 @@ public class TestesPedidos {
 		GeraPedido gerador = new GeraPedido(cliente, valorOrcamento,quantidadeItens);
 		GeraPedidoHandler handler = new GeraPedidoHandler(
 				Arrays.asList(new SalvarPedidonoNoBancoDeDados(),
-				new EnviarEmail()
+				new EnviarEmail(),
+				new SalvarPedidonoNoBancoDeDados(),
+				new LogDePedido()
 				));
 		handler.execute(gerador);
 	}
