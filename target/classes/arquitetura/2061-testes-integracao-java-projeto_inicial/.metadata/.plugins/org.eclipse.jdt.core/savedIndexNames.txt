@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\Acer\Documents\MeusProjetos\java-alura\src\arquitetura\2061-testes-integracao-java-projeto_inicial\.metadata\.plugins\org.eclipse.jdt.core
+3883950653.index
+4242768837.index
+1067094681.index
