@@ -23,8 +23,8 @@ public class LanceDao {
 
 
 
-	public void salvar(Lance lance) {
-		em.persist(lance);
+	public Lance salvar(Lance lance) {
+		return em.merge(lance);
 	}
 
 	public Lance buscarMaiorLanceDoLeilao(Leilao leilao) {

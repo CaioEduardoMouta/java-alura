@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -24,10 +23,8 @@ public class LeilaoDao {
 		this.em = em;
 	}
 
-
-
-	public void salvar(Leilao leilao) {
-		em.merge(leilao);
+	public Leilao salvar(Leilao leilao) {
+		return em.merge(leilao);
 	}
 
 	public Leilao buscarPorId(Long id) {

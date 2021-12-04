@@ -3,6 +3,8 @@ package br.com.alura.leilao.dao;
 import br.com.alura.leilao.model.Leilao;
 import br.com.alura.leilao.model.Usuario;
 import br.com.alura.leilao.util.JPAUtil;
+import br.com.alura.leilao.util.builder.LeilaoBuilder;
+import br.com.alura.leilao.util.builder.UsuarioBuilder;
 import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,19 +34,53 @@ public class LeilaoDaoTest {
     }
 
     @Test
-    void deveriaCdastrarUmLeilao() {
-        Usuario usuario = criarUsuario();
-        Leilao leilao = new Leilao("Mochila", new BigDecimal("70"), LocalDate.now());
+    void deveriaCadastrarUmLeilao() {
 
-        dao.salvar(leilao);
+        Usuario usuario = new UsuarioBuilder()
+                 .comNome("Fulano")
+                 .comEmail("fulano@email.com")
+                 .comSenha("111222")
+                 .criar();
+
+        em.persist(usuario);
+
+        Leilao leilao = new LeilaoBuilder()
+                .comNome("SSD")
+                .comValorInicial("500")
+                .comData(LocalDate.now())
+                .comUsuario(usuario)
+                .criar();
+
+
+
+        leilao = dao.salvar(leilao);
 
         Leilao salvo = dao.buscarPorId(leilao.getId());
         Assert.assertNotNull(salvo);
     }
 
-    private Usuario criarUsuario() {
-        Usuario usuario = new Usuario("Fulano","fulano@sicrano.com","21212121");
+    @Test
+    void deveriaAtualizarLeilao() {
+        Usuario usuario = new UsuarioBuilder()
+                .comNome("Fulano")
+                .comEmail("fulano@email.com")
+                .comSenha("111222")
+                .criar();
+
         em.persist(usuario);
-        return usuario;
+
+        Leilao leilao = new LeilaoBuilder()
+                .comNome("SSD")
+                .comValorInicial("500")
+                .comData(LocalDate.now())
+                .comUsuario(usuario)
+                .criar();
+
+        leilao = dao.salvar(leilao);
+
+        Leilao salvo = dao.buscarPorId(leilao.getId());
+        Assert.assertNotNull(salvo);
     }
+
+
 }
