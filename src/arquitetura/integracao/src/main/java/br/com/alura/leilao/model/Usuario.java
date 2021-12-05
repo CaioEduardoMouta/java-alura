@@ -21,22 +21,23 @@ public class Usuario {
 
 	@NotNull
 	@NotBlank
-	@Column(name = "username")
+	@Column(name="username")
 	private String nome;
-
+	
 	@NotNull
 	@NotBlank
-	@Column(name = "password")
+	@Column(name="password")
 	private String senha;
+	
 
 	@NotNull
 	@NotBlank
 	@Email
 	private String email;
-
-	// Srpign Security
+	
+	//Srpign Security
 	private String role;
-	private boolean enabled;
+    private boolean enabled;
 
 	@Deprecated
 	public Usuario() {
@@ -104,7 +105,7 @@ public class Usuario {
 	public void activa() {
 		this.enabled = true;
 	}
-
+	
 	public void desativa() {
 		this.enabled = false;
 	}
@@ -133,5 +134,7 @@ public class Usuario {
 			return false;
 		return true;
 	}
-
+	
+	
+	
 }

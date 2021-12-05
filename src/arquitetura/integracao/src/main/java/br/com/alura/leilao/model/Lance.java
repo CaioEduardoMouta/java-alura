@@ -35,9 +35,8 @@ public class Lance {
 	private Leilao leilao;
 
 	@Deprecated
-	public Lance() {
-	}
-
+	public Lance() {}
+	
 	public Lance(Usuario usuario, BigDecimal valor) {
 		if (valor.doubleValue() <= 0) {
 			throw new IllegalArgumentException();

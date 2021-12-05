@@ -18,6 +18,7 @@ import javax.persistence.OneToOne;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Entity
 public class Leilao {
@@ -51,21 +52,24 @@ public class Leilao {
 	public Leilao(@NotNull @NotBlank String nome) {
 		this.nome = nome;
 	}
-
+	
 	public Leilao(@NotBlank String nome, @NotNull @DecimalMin("0.1") BigDecimal valorInicial, @NotNull LocalDate dataAbertura) {
 		this.nome = nome;
 		this.valorInicial = valorInicial;
 		this.dataAbertura = dataAbertura;
 	}
+	
 
-	public Leilao(@NotNull @NotBlank String nome, @NotNull @DecimalMin("0.1") BigDecimal valorInicial, @NotNull Usuario usuario) {
+	public Leilao(@NotNull @NotBlank String nome, @NotNull @DecimalMin("0.1") BigDecimal valorInicial,
+			@NotNull Usuario usuario) {
 		this.nome = nome;
 		this.valorInicial = valorInicial;
 		this.usuario = usuario;
 		this.dataAbertura = LocalDate.now();
 	}
 
-	public Leilao(@NotNull @NotBlank String nome, @NotNull @DecimalMin("0.1") BigDecimal valorInicial, @NotNull LocalDate data, @NotNull Usuario usuario) {
+	public Leilao(@NotNull @NotBlank String nome, @NotNull @DecimalMin("0.1") BigDecimal valorInicial,
+			@NotNull LocalDate data, @NotNull Usuario usuario) {
 		this.nome = nome;
 		this.valorInicial = valorInicial;
 		this.usuario = usuario;
@@ -89,14 +93,12 @@ public class Leilao {
 	}
 
 	public Date getDataAberturaDate() {
-		return java.util.Date.from(this.dataAbertura.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+		return java.util.Date.from(this.dataAbertura.atStartOfDay()
+			      .atZone(ZoneId.systemDefault())
+			      .toInstant());
 	}
-
-	public boolean isAberto() {
-		LocalDate hoje = LocalDate.now();
-		return hoje.isAfter(this.dataAbertura) || hoje.isEqual(dataAbertura);
-	}
-
+	
+	
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
@@ -126,6 +128,7 @@ public class Leilao {
 	}
 
 	public boolean propoe(Lance lanceAtual) {
+		
 		if (this.estaSemLances() || ehUmLanceValido(lanceAtual)) {
 			adicionarLance(lanceAtual);
 			return true;
@@ -139,17 +142,19 @@ public class Leilao {
 	}
 
 	private boolean ehUmLanceValido(Lance lance) {
-		return valorEhMaior(lance, ultimoLanceDado()) && oUltimoUsuarioNaoEhOMesmoDo(lance)
-				&& totalDeLancesDoUsuarioEhMenorIgual5(lance.getUsuario());
+		return valorEhMaior(lance, ultimoLanceDado()) && 
+				oUltimoUsuarioNaoEhOMesmoDo(lance) && 
+				totalDeLancesDoUsuarioEhMenorIgual5(lance.getUsuario());
 	}
 
 	private boolean valorEhMaior(Lance lance, Lance ultimoLanceDado) {
 		return lance.getValor().compareTo(ultimoLanceDado.getValor()) > 0;
 	}
 
+
 	private boolean totalDeLancesDoUsuarioEhMenorIgual5(Usuario usuario) {
 		int totalDeLances = qtdDeLancesDo(usuario);
-		return totalDeLances <= 5;
+		return totalDeLances < 5;
 	}
 
 	private boolean oUltimoUsuarioNaoEhOMesmoDo(Lance lance) {
@@ -165,7 +170,7 @@ public class Leilao {
 		}
 		return total;
 	}
-
+	
 	private boolean estaSemLances() {
 		return this.lances.isEmpty();
 	}
@@ -181,5 +186,4 @@ public class Leilao {
 	public boolean temLances() {
 		return !this.lances.isEmpty();
 	}
-
 }
