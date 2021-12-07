@@ -128,8 +128,8 @@ public class Leilao {
 	}
 
 	public boolean propoe(Lance lanceAtual) {
-
-		if (!ehValido(lanceAtual)) {
+		
+		if(!ehValido(lanceAtual)) {
 			return false;
 		}
 		
