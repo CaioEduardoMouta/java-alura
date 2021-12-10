@@ -1,6 +1,6 @@
 package br.com.alura.escola;
 
-import br.com.alura.escola.aluno.Email;
+import br.com.alura.escola.dominio.aluno.Email;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
