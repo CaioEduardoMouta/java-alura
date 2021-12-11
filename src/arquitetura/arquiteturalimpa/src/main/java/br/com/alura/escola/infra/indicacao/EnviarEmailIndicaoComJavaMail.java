@@ -6,6 +6,6 @@ import br.com.alura.escola.dominio.aluno.Aluno;
 public class EnviarEmailIndicaoComJavaMail implements EnviarEmailIndicacao {
     @Override
     public void enviarPara(Aluno indicado) {
-        
+
     }
 }
