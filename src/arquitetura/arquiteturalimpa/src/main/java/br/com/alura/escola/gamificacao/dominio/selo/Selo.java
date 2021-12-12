@@ -1,6 +1,5 @@
 package br.com.alura.escola.gamificacao.dominio.selo;
-
-import br.com.alura.escola.gamificacao.dominio.CPF;
+import br.com.alura.escola.shared.dominio.CPF;
 
 public class Selo {
 
@@ -11,6 +10,7 @@ public class Selo {
         this.cpfDoAluno = cpfDoAluno;
         this.nome = nome;
     }
+
 
     public String getNome() {
         return nome;
